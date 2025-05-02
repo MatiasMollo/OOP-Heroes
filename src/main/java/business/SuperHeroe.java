@@ -1,13 +1,13 @@
 package business;
 
-public abstract class Heroe {
+public abstract class SuperHeroe {
 
     protected String nombre;
     protected String identidad;
     protected String poder;
     protected Traje traje;
 
-    public Heroe(String nombre, String identidad, String poder, Traje traje) {
+    public SuperHeroe(String nombre, String identidad, String poder, Traje traje) {
         this.nombre = nombre;
         this.identidad = identidad;
         this.poder = poder;

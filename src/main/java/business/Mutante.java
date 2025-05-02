@@ -1,6 +1,6 @@
 package business;
 
-public class Mutante extends Heroe{
+public class Mutante extends SuperHeroe {
     private String mutacion;
     private String tipo;
 

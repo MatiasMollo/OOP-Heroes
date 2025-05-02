@@ -1,6 +1,6 @@
 package business;
 
-public class Humano extends Heroe{
+public class Humano extends SuperHeroe {
 
     private int edad;
     private String sexo;
