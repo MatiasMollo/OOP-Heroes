@@ -39,6 +39,13 @@ public class ArmaController {
         System.out.println("No se encontró un arma con código: " + codigoBuscado);
     }
 
+    public Arma getArmaByName(String nombre) {
+        for (Arma a : armas) {
+            if (a.getNombre().equalsIgnoreCase(nombre)) {
+                return a;  // Devuelve el primer arma que coincida con el nombre
+            }
         }
+        System.out.println("No se encontró un arma con nombre: " + nombre);
+        return null;  // Si no se encuentra el arma, devuelve null
     }
 }

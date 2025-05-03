@@ -38,6 +38,14 @@ public class TrajeController {
         System.out.println("No se encontró el traje: " + nombre);
     }
 
+    public Traje getTrajeByName(String nombre) {
+        for (Traje t : trajes) {
+            if (t.getNombre().equalsIgnoreCase(nombre)) {
+                return t;
+            }
         }
+        System.out.println("No se encontró un traje con el nombre: " + nombre);
+        return null;
     }
+
 }
