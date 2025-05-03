@@ -27,18 +27,6 @@ public class ArmaController {
         }
     }
 
-    public void actualizarArma(int codigoBuscado, String nuevoNombre, String nuevaDescripcion, String nuevoEstado) {
-        for (Arma a : armas) {
-            if (a.getCodigo() == codigoBuscado) {
-                Arma actualizada = new Arma(codigoBuscado, nuevoNombre, nuevaDescripcion, nuevoEstado);
-                armas.set(armas.indexOf(a), actualizada);
-                System.out.println("Arma actualizada: " + nuevoNombre);
-                return;
-            }
-        }
-        System.out.println("No se encontró un arma con código: " + codigoBuscado);
-    }
-
     public Arma getArmaByName(String nombre) {
         for (Arma a : armas) {
             if (a.getNombre().equalsIgnoreCase(nombre)) {
@@ -48,4 +36,5 @@ public class ArmaController {
         System.out.println("No se encontró un arma con nombre: " + nombre);
         return null;  // Si no se encuentra el arma, devuelve null
     }
+
 }

@@ -3,7 +3,6 @@ package controller;
 import business.Humano;
 import business.Mutante;
 import business.SuperHeroe;
-import business.Traje;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,26 +35,6 @@ public class SuperheroeController {
             }
         }
     }
-
-    public void actualizarPoder(String identidad, String nuevoPoder) {
-        for (SuperHeroe sh : heroes) {
-            if (sh.getIdentidad().equalsIgnoreCase(identidad)) {
-                if (sh instanceof Humano h) {
-                    Humano actualizado = new Humano(h.getNombre(), h.getIdentidad(), nuevoPoder, h.getTraje(), h.getEdad(), h.getSexo(), h.getNacionalidad());
-                    heroes.set(heroes.indexOf(h), actualizado);
-                    System.out.println("Humano actualizado: " + identidad);
-                } else if (sh instanceof Mutante m) {
-                    Mutante actualizado = new Mutante(m.getNombre(), m.getIdentidad(), nuevoPoder, m.getTraje(), m.getMutacion(), m.getTipo());
-                    heroes.set(heroes.indexOf(m), actualizado);
-                    System.out.println("Mutante actualizado: " + identidad);
-                }
-                return;
-            }
-        }
-        System.out.println("No se encontró un superhéroe con esa identidad.");
-    }
-
-
 
     public List<SuperHeroe> getHeroes() {
         return heroes;

@@ -1,7 +1,6 @@
 package controller;
 
 import business.Alienigena;
-import business.Arma;
 import business.Villano;
 
 import java.util.ArrayList;
@@ -28,21 +27,8 @@ public class VillanoController {
         }
     }
 
-    public void actualizarVillano(String aliasBuscado, String nuevoObjetivo, String nuevoPoder) {
-        for (Villano v : villanos) {
-            if (v.getAlias().equalsIgnoreCase(aliasBuscado) && v instanceof Alienigena){
-                    Alienigena alienigena = (Alienigena) v;
-                    Alienigena actualizado = new Alienigena(alienigena.getNombre(), alienigena.getAlias(), nuevoObjetivo, nuevoPoder, alienigena.getArma(), alienigena.getPlaneta(), alienigena.getEspecie());
-                    villanos.set(villanos.indexOf(v), actualizado);
-                    System.out.println("Villano actualizado: " + aliasBuscado);
-                    return;
-            }
-        }
-
-        System.out.println("Villano no encontrado: " + aliasBuscado);
-    }
-
     public List<Villano> getVillanos() {
         return villanos;
     }
+
 }

@@ -26,18 +26,6 @@ public class TrajeController {
         }
     }
 
-    public void actualizarDescripcion(String nombre, String nuevaDescripcion) {
-        for (Traje t : trajes) {
-            if (t.getNombre().equalsIgnoreCase(nombre)) {
-                Traje actualizado = new Traje(t.getNombre(), nuevaDescripcion, t.getColor(), t.getDebilidad());
-                trajes.set(trajes.indexOf(t), actualizado);
-                System.out.println("Descripción actualizada para el traje: " + nombre);
-                return;
-            }
-        }
-        System.out.println("No se encontró el traje: " + nombre);
-    }
-
     public Traje getTrajeByName(String nombre) {
         for (Traje t : trajes) {
             if (t.getNombre().equalsIgnoreCase(nombre)) {
