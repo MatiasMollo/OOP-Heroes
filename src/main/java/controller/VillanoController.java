@@ -20,18 +20,22 @@ public class VillanoController {
             System.out.println("No hay villanos registrados.");
             return;
         }
-        for (Alienigena v : villanos) {
-            System.out.println("Alias: " + v.getAlias() + " | Planeta: " + v.getPlaneta() + " | Especie: " + v.getEspecie());
+        for (Villano v : villanos) {
+            if (v instanceof Alienigena) {
+                Alienigena alienigena = (Alienigena) v;
+                System.out.println("Alias: " + alienigena.getAlias() + " | Planeta: " + alienigena.getPlaneta() + " | Especie: " + alienigena.getEspecie());
+            }
         }
     }
 
     public void actualizarVillano(String aliasBuscado, String nuevoObjetivo, String nuevoPoder) {
-        for (Alienigena v : villanos) {
-            if (v.getAlias().equalsIgnoreCase(aliasBuscado)) {
-                Alienigena actualizado = new Alienigena(v.getNombre(), v.getAlias(), nuevoObjetivo, nuevoPoder, v.getArma(), v.getPlaneta(), v.getEspecie());
-                villanos.set(villanos.indexOf(v), actualizado);
-                System.out.println("Villano actualizado: " + aliasBuscado);
-                return;
+        for (Villano v : villanos) {
+            if (v.getAlias().equalsIgnoreCase(aliasBuscado) && v instanceof Alienigena){
+                    Alienigena alienigena = (Alienigena) v;
+                    Alienigena actualizado = new Alienigena(alienigena.getNombre(), alienigena.getAlias(), nuevoObjetivo, nuevoPoder, alienigena.getArma(), alienigena.getPlaneta(), alienigena.getEspecie());
+                    villanos.set(villanos.indexOf(v), actualizado);
+                    System.out.println("Villano actualizado: " + aliasBuscado);
+                    return;
             }
         }
 

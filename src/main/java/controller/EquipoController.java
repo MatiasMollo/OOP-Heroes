@@ -20,19 +20,17 @@ public class EquipoController {
     }
 
     public void listarEquipos() {
-        if (equipos.isEmpty()) {
+        if (equiposSuperHeroes.isEmpty() && equiposVillanos.isEmpty()) {
             System.out.println("No hay equipos registrados.");
             return;
         }
 
-        for (Equipo eq : equipos) {
-            System.out.println("Equipo: " + eq.getNombre() + " | Base: " + eq.getBase());
+        for (EquipoSuperHeroe eq : equiposSuperHeroes) {
+            System.out.println("Equipo: " + eq.getNombre() + " | Base: " + eq.getBase() + " | (Superhéroes) Misión: " + eq.getMision() + " | Miembros: " + eq.getHeroes().size());
+        }
 
-            if (eq instanceof EquipoSuperHeroe sh) {
-                System.out.println("  (Superhéroes) Misión: " + sh.getMision() + " | Miembros: " + sh.getHeroes().length);
-            } else if (eq instanceof EquipoVillano v) {
-                System.out.println("  (Villanos) Ubicación: " + v.getUbicacion() + " | Miembros: " + v.getVillanos().length);
-            }
+        for (EquipoVillano eq : equiposVillanos) {
+            System.out.println("Equipo: " + eq.getNombre() + " | Base: " + eq.getBase() + " | (Villanos) Ubicación: " + eq.getUbicacion() + " | Miembros: " + eq.getVillanos().size());
         }
     }
 
