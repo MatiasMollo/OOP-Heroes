@@ -8,10 +8,9 @@ import java.util.List;
 public class ArmaController {
     private List<Arma> armas = new ArrayList<>();
 
-    public void agregarArma(int codigo, String nombre, String descripcion, String estado) {
-        Arma nuevaArma = new Arma(codigo, nombre, descripcion, estado);
-        armas.add(nuevaArma);
-        System.out.println("Arma agregada: " + nombre);
+    public void agregarArma(Arma arma) {
+        armas.add(arma);
+        System.out.println("Arma agregada: " + arma.getNombre());
     }
 
     public void listarArmas() {
@@ -40,12 +39,6 @@ public class ArmaController {
         System.out.println("No se encontró un arma con código: " + codigoBuscado);
     }
 
-    public void eliminarArma(int codigo) {
-        boolean eliminada = armas.removeIf(a -> a.getCodigo() == codigo);
-        if (eliminada) {
-            System.out.println("Arma eliminada.");
-        } else {
-            System.out.println("No se encontró un arma con ese código.");
         }
     }
 }

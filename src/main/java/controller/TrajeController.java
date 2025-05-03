@@ -8,10 +8,9 @@ import java.util.List;
 public class TrajeController {
     private List<Traje> trajes = new ArrayList<>();
 
-    public void agregarTraje(String nombre, String descripcion, String color, String debilidad) {
-        Traje traje = new Traje(nombre, descripcion, color, debilidad);
+    public void agregarTraje(Traje traje) {
         trajes.add(traje);
-        System.out.println("Traje agregado: " + nombre);
+        System.out.println("Traje agregado: " + traje.getNombre());
     }
 
     public void listarTrajes() {
@@ -39,12 +38,6 @@ public class TrajeController {
         System.out.println("No se encontró el traje: " + nombre);
     }
 
-    public void eliminarTraje(String nombre) {
-        boolean eliminado = trajes.removeIf(t -> t.getNombre().equalsIgnoreCase(nombre));
-        if (eliminado) {
-            System.out.println("Traje eliminado: " + nombre);
-        } else {
-            System.out.println("No se encontró el traje: " + nombre);
         }
     }
 }

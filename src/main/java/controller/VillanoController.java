@@ -2,17 +2,17 @@ package controller;
 
 import business.Alienigena;
 import business.Arma;
+import business.Villano;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VillanoController {
-    private List<Alienigena> villanos = new ArrayList<>();
+    private List<Villano> villanos = new ArrayList<>();
 
-    public void agregarVillano(String nombre, String alias, String objetivo, String poder, Arma arma, String planeta, String especie) {
-        Alienigena nuevoVillano = new Alienigena(nombre, alias, objetivo, poder, arma, planeta, especie);
-        villanos.add(nuevoVillano);
-        System.out.println("Villano agregado: " + alias);
+    public void agregarVillano(Alienigena alienigena) {
+        villanos.add(alienigena);
+        System.out.println("Villano agregado: " + alienigena.getNombre());
     }
 
     public void mostrarVillanos() {
@@ -34,11 +34,9 @@ public class VillanoController {
                 return;
             }
         }
+
         System.out.println("Villano no encontrado: " + aliasBuscado);
     }
 
-    public void eliminarVillano(String alias) {
-        villanos.removeIf(v -> v.getAlias().equalsIgnoreCase(alias));
-        System.out.println("Villano eliminado si existía: " + alias);
     }
 }

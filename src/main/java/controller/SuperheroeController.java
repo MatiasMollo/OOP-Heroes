@@ -11,16 +11,14 @@ import java.util.List;
 public class SuperheroeController {
     private List<SuperHeroe> heroes = new ArrayList<>();
 
-    public void agregarHumano(String nombre, String identidad, String poder, Traje traje, int edad, String sexo, String nacionalidad) {
-        Humano h = new Humano(nombre, identidad, poder, traje, edad, sexo, nacionalidad);
-        heroes.add(h);
-        System.out.println("Humano agregado: " + nombre);
+    public void agregarHumano(Humano humano) {
+        heroes.add(humano);
+        System.out.println("Humano agregado: " + humano.getNombre());
     }
 
-    public void agregarMutante(String nombre, String identidad, String poder, Traje traje, String mutacion, String tipo) {
-        Mutante m = new Mutante(nombre, identidad, poder, traje, mutacion, tipo);
-        heroes.add(m);
-        System.out.println("Mutante agregado: " + nombre);
+    public void agregarMutante(Mutante mutante) {
+        heroes.add(mutante);
+        System.out.println("Mutante agregado: " + mutante.getNombre());
     }
 
     public void listarSuperheroes() {
@@ -57,12 +55,5 @@ public class SuperheroeController {
         System.out.println("No se encontró un superhéroe con esa identidad.");
     }
 
-    public void eliminarSuperheroe(String identidad) {
-        boolean eliminado = heroes.removeIf(sh -> sh.getIdentidad().equalsIgnoreCase(identidad));
-        if (eliminado) {
-            System.out.println("Superhéroe eliminado.");
-        } else {
-            System.out.println("No se encontró un superhéroe con esa identidad.");
-        }
     }
 }
