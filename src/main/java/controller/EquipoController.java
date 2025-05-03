@@ -36,5 +36,12 @@ public class EquipoController {
         }
     }
 
+    public EquipoSuperHeroe getEquipoSuperHeroe(int indice) {
+        return equiposSuperHeroes.get(indice);
     }
+
+    public EquipoVillano getEquipoVillano(int indice) {
+        return equiposVillanos.get(indice);
+    }
+
 }

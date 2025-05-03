@@ -55,5 +55,9 @@ public class SuperheroeController {
         System.out.println("No se encontró un superhéroe con esa identidad.");
     }
 
+
+
+    public List<SuperHeroe> getHeroes() {
+        return heroes;
     }
 }

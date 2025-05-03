@@ -38,5 +38,7 @@ public class VillanoController {
         System.out.println("Villano no encontrado: " + aliasBuscado);
     }
 
+    public List<Villano> getVillanos() {
+        return villanos;
     }
 }
