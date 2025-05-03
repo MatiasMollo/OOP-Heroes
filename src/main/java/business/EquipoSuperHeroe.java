@@ -1,16 +1,18 @@
 package business;
 
+import java.util.List;
+
 public class EquipoSuperHeroe extends Equipo{
-    private SuperHeroe []heroes;
+    private List<SuperHeroe> heroes;
     private String mision;
 
-    public EquipoSuperHeroe(String nombre, String base, SuperHeroe[] heroe, String mision) {
+    public EquipoSuperHeroe(String nombre, String base, List<SuperHeroe> heroe, String mision) {
         super(nombre, base);
         this.heroes = heroe;
         this.mision = mision;
     }
 
-    public SuperHeroe[] getHeroes() {
+    public List<SuperHeroe> getHeroes() {
         return heroes;
     }
 

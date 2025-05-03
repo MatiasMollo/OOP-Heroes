@@ -6,43 +6,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EquipoController {
-    private List<Equipo> equipos = new ArrayList<>();
+    private List<EquipoSuperHeroe> equiposSuperHeroes = new ArrayList<>();
+    private List<EquipoVillano> equiposVillanos = new ArrayList<>();
 
-    public void agregarEquipoSuperHeroe(String nombre, String base, SuperHeroe[] heroes, String mision) {
-        EquipoSuperHeroe equipo = new EquipoSuperHeroe(nombre, base, heroes, mision);
-        equipos.add(equipo);
-        System.out.println("Equipo de superhéroes agregado: " + nombre);
+    public void agregarEquipoSuperHeroe(EquipoSuperHeroe equipoSuperHeroe) {
+        equiposSuperHeroes.add(equipoSuperHeroe);
+        System.out.println("Equipo de superhéroes agregado: " + equipoSuperHeroe.getNombre());
     }
 
-    public void agregarEquipoVillano(String nombre, String base, Villano[] villanos, String ubicacion) {
-        EquipoVillano equipo = new EquipoVillano(nombre, base, villanos, ubicacion);
-        equipos.add(equipo);
-        System.out.println("Equipo de villanos agregado: " + nombre);
+    public void agregarEquipoVillano(EquipoVillano equipoVillano) {
+        equiposVillanos.add(equipoVillano);
+        System.out.println("Equipo de villanos agregado: " + equipoVillano.getNombre());
     }
 
     public void listarEquipos() {
-        if (equipos.isEmpty()) {
+        if (equiposSuperHeroes.isEmpty() && equiposVillanos.isEmpty()) {
             System.out.println("No hay equipos registrados.");
             return;
         }
 
-        for (Equipo eq : equipos) {
-            System.out.println("Equipo: " + eq.getNombre() + " | Base: " + eq.getBase());
+        for (EquipoSuperHeroe eq : equiposSuperHeroes) {
+            System.out.println("Equipo: " + eq.getNombre() + " | Base: " + eq.getBase() + " | (Superhéroes) Misión: " + eq.getMision() + " | Miembros: " + eq.getHeroes().size());
+        }
 
-            if (eq instanceof EquipoSuperHeroe sh) {
-                System.out.println("  (Superhéroes) Misión: " + sh.getMision() + " | Miembros: " + sh.getHeroes().length);
-            } else if (eq instanceof EquipoVillano v) {
-                System.out.println("  (Villanos) Ubicación: " + v.getUbicacion() + " | Miembros: " + v.getVillanos().length);
-            }
+        for (EquipoVillano eq : equiposVillanos) {
+            System.out.println("Equipo: " + eq.getNombre() + " | Base: " + eq.getBase() + " | (Villanos) Ubicación: " + eq.getUbicacion() + " | Miembros: " + eq.getVillanos().size());
         }
     }
 
-    public void eliminarEquipo(String nombre) {
-        boolean eliminado = equipos.removeIf(eq -> eq.getNombre().equalsIgnoreCase(nombre));
-        if (eliminado) {
-            System.out.println("Equipo eliminado: " + nombre);
-        } else {
-            System.out.println("No se encontró el equipo: " + nombre);
-        }
+    public EquipoSuperHeroe getEquipoSuperHeroe(int indice) {
+        return equiposSuperHeroes.get(indice);
     }
+
+    public EquipoVillano getEquipoVillano(int indice) {
+        return equiposVillanos.get(indice);
+    }
+
 }

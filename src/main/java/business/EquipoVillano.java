@@ -1,17 +1,19 @@
 package business;
 
+import java.util.List;
+
 public class EquipoVillano extends Equipo{
 
-    private Villano []villanos;
+    private List<Villano> villanos;
     private String ubicacion;
 
-    public EquipoVillano(String nombre, String base, Villano[] villanos, String ubicacion) {
+    public EquipoVillano(String nombre, String base, List<Villano> villanos, String ubicacion) {
         super(nombre, base);
         this.villanos = villanos;
         this.ubicacion = ubicacion;
     }
 
-    public Villano[] getVillanos() {
+    public List<Villano>  getVillanos() {
         return villanos;
     }
 

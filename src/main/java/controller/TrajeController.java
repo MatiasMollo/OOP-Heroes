@@ -8,10 +8,9 @@ import java.util.List;
 public class TrajeController {
     private List<Traje> trajes = new ArrayList<>();
 
-    public void agregarTraje(String nombre, String descripcion, String color, String debilidad) {
-        Traje traje = new Traje(nombre, descripcion, color, debilidad);
+    public void agregarTraje(Traje traje) {
         trajes.add(traje);
-        System.out.println("Traje agregado: " + nombre);
+        System.out.println("Traje agregado: " + traje.getNombre());
     }
 
     public void listarTrajes() {
@@ -27,24 +26,14 @@ public class TrajeController {
         }
     }
 
-    public void actualizarDescripcion(String nombre, String nuevaDescripcion) {
+    public Traje getTrajeByName(String nombre) {
         for (Traje t : trajes) {
             if (t.getNombre().equalsIgnoreCase(nombre)) {
-                Traje actualizado = new Traje(t.getNombre(), nuevaDescripcion, t.getColor(), t.getDebilidad());
-                trajes.set(trajes.indexOf(t), actualizado);
-                System.out.println("Descripción actualizada para el traje: " + nombre);
-                return;
+                return t;
             }
         }
-        System.out.println("No se encontró el traje: " + nombre);
+        System.out.println("No se encontró un traje con el nombre: " + nombre);
+        return null;
     }
 
-    public void eliminarTraje(String nombre) {
-        boolean eliminado = trajes.removeIf(t -> t.getNombre().equalsIgnoreCase(nombre));
-        if (eliminado) {
-            System.out.println("Traje eliminado: " + nombre);
-        } else {
-            System.out.println("No se encontró el traje: " + nombre);
-        }
-    }
 }
